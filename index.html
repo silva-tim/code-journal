@@ -26,7 +26,32 @@
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form"></div>
+    <div data-view="entry-form">
+      <form>
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg" alt="Placeholder Image">
+          </div>
+          <div class="column-half">
+            <h3><label for="title">Title</label></h3>
+            <input type="text" id="title">
+            <h3><label for="photoLink"></label>Photo URL</label></h3>
+            <input type="text" id="photolink">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <h3><label for="notes">Notes</label></h3>
+            <textarea id="notes" rows="10"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
     <div data-view="entries" class="hidden"></div>
   </main>
   <script src="js/data.js"></script>

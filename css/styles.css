@@ -3,3 +3,12 @@ header {
   color: white;
   font-size: 1.2rem;
 }
+
+textarea#notes {
+  width: 100%;
+}
+
+input#title,
+input#photolink {
+  width: 100%;
+}
