@@ -4,11 +4,27 @@ header {
   font-size: 1.2rem;
 }
 
-textarea#notes {
+body {
+  background-color: #f0f0f0;
+}
+
+img {
   width: 100%;
 }
 
+button {
+  background-color: #552b81;
+  color: white;
+}
+
+textarea#notes,
 input#title,
 input#photolink {
   width: 100%;
+  padding: 3% 2%;
+  margin-bottom: 3%;
+}
+
+h3 {
+  margin-bottom: 2%;
 }
