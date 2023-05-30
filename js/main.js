@@ -39,6 +39,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.append(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
+  if (data.entries.length === 0) {
+    toggleNoEntries();
+  }
 });
 
 function renderEntry(entry) {
