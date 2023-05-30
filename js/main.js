@@ -3,6 +3,7 @@ const $title = document.querySelector('#title');
 const $photoLink = document.querySelector('#photolink');
 const $notes = document.querySelector('#notes');
 const $photo = document.querySelector('img');
+const $ul = document.querySelector('ul');
 
 $photoLink.addEventListener('input', function (event) {
   $photo.setAttribute('src', event.target.value);
@@ -22,6 +23,12 @@ $form.addEventListener('submit', function (event) {
   data.entries.unshift(submission);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+});
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    $ul.append(renderEntry(data.entries[i]));
+  }
 });
 
 function renderEntry(entry) {
@@ -54,4 +61,3 @@ function renderEntry(entry) {
   $columnHalf2.append($h2, $p);
   return $li;
 }
-renderEntry();
