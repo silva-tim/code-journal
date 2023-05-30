@@ -18,6 +18,16 @@
   width: 100%;
 }
 
+.justifyright {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  padding: 2% 4%;
+  border-radius: 10%;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -30,5 +40,14 @@
 
   .column-half {
     width: 50%;
+  }
+
+  h3#titlealign {
+    margin-top: 0;
+  }
+
+  button {
+    padding: 1% 2%;
+    border-radius: 5%;
   }
 }
