@@ -8,6 +8,7 @@ const $viewEntryForm = document.querySelector("[data-view='entry-form']");
 const $viewEntries = document.querySelector("[data-view='entries']");
 const $aEntries = document.querySelector('a#entries');
 const $aNew = document.querySelector('a#new');
+const $noEntries = document.querySelector('#noentries');
 
 $photoLink.addEventListener('input', function (event) {
   $photo.setAttribute('src', event.target.value);
@@ -22,11 +23,16 @@ $form.addEventListener('submit', function (event) {
     notes: $notes.value,
     entryId: data.nextEntryId
   };
-
+  $ul.prepend(renderEntry(submission));
   data.nextEntryId++;
   data.entries.unshift(submission);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  viewSwap('entries');
+
+  if ($noEntries.getAttribute('class') !== 'row hidden') {
+    toggleNoEntries();
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -67,7 +73,6 @@ function renderEntry(entry) {
 }
 
 function toggleNoEntries() {
-  const $noEntries = document.querySelector('#noentries');
   $noEntries.classList.toggle('hidden');
 }
 
