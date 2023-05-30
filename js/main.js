@@ -99,4 +99,3 @@ $aEntries.addEventListener('click', function (event) {
 $aNew.addEventListener('click', function (event) {
   viewSwap('entry-form');
 });
-toggleNoEntries();
