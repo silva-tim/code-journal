@@ -25,6 +25,7 @@ img {
   width: 100%;
 }
 
+a#new,
 button {
   background-color: #552b81;
   color: white;
@@ -50,7 +51,7 @@ li {
   margin-bottom: 5%;
 }
 
-a {
+a#entries {
   font-size: smaller;
   padding: 0 2%;
 }

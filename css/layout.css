@@ -13,6 +13,10 @@
   flex-wrap: wrap;
 }
 
+.column-alwayshalf {
+  width: 50%;
+}
+
 .column-full,
 .column-half {
   width: 100%;
@@ -28,6 +32,12 @@
   justify-content: center;
 }
 
+.aligncenter {
+  display: flex;
+  align-items: center;
+}
+
+a#new,
 button {
   padding: 2% 4%;
   border-radius: 10%;
@@ -38,6 +48,7 @@ button {
     max-width: 900px;
   }
 
+  .column-alwayshalf,
   .column-full,
   .column-half {
     padding: 0 0.75rem;
@@ -49,6 +60,10 @@ button {
 
   .alignwithimg {
     margin-top: 0;
+  }
+
+  a#new {
+    padding: 2% 3%;
   }
 
   button {

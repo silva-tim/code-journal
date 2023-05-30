@@ -6,7 +6,8 @@ const $photo = document.querySelector('img');
 const $ul = document.querySelector('ul');
 const $viewEntryForm = document.querySelector("[data-view='entry-form']");
 const $viewEntries = document.querySelector("[data-view='entries']");
-const $navBar = document.querySelector('a');
+const $aEntries = document.querySelector('a#entries');
+const $aNew = document.querySelector('a#new');
 
 $photoLink.addEventListener('input', function (event) {
   $photo.setAttribute('src', event.target.value);
@@ -82,7 +83,11 @@ function viewSwap(view) {
   data.view = view;
 }
 
-$navBar.addEventListener('click', function (event) {
+$aEntries.addEventListener('click', function (event) {
   viewSwap('entries');
+});
+
+$aNew.addEventListener('click', function (event) {
+  viewSwap('entry-form');
 });
 toggleNoEntries();
