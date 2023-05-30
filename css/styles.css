@@ -49,3 +49,12 @@ ul {
 li {
   margin-bottom: 5%;
 }
+
+a {
+  font-size: smaller;
+  padding: 0 2%;
+}
+
+a:hover {
+  cursor: pointer;
+}
