@@ -61,3 +61,9 @@ function renderEntry(entry) {
   $columnHalf2.append($h2, $p);
   return $li;
 }
+
+function toggleNoEntries() {
+  const $noEntries = document.querySelector('#noentries');
+  $noEntries.classList.toggle('hidden');
+}
+toggleNoEntries();
