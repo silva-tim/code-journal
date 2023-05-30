@@ -1,7 +1,12 @@
+* {
+  font-family: "Proza Libre", sans-serif;
+}
+
 header {
   background-color: #552b81;
   color: white;
   font-size: 1.2rem;
+  font-weight: 100;
 }
 
 body {
@@ -23,6 +28,7 @@ input#photolink {
   width: 100%;
   padding: 3% 2%;
   margin-bottom: 3%;
+  font-family: "Open Sans", sans-serif;
 }
 
 h3 {
