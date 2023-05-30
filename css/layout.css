@@ -13,6 +13,10 @@
   flex-wrap: wrap;
 }
 
+.column-alwayshalf {
+  width: 50%;
+}
+
 .column-full,
 .column-half {
   width: 100%;
@@ -23,9 +27,25 @@
   justify-content: flex-end;
 }
 
+.justifycenter {
+  display: flex;
+  justify-content: center;
+}
+
+.aligncenter {
+  display: flex;
+  align-items: center;
+}
+
+a#new {
+  padding: 3% 5%;
+  border-radius: 10%;
+}
+
 button {
   padding: 2% 4%;
   border-radius: 10%;
+  margin-bottom: 3%;
 }
 
 @media screen and (min-width: 768px) {
@@ -33,6 +53,7 @@ button {
     max-width: 900px;
   }
 
+  .column-alwayshalf,
   .column-full,
   .column-half {
     padding: 0 0.75rem;
@@ -42,12 +63,15 @@ button {
     width: 50%;
   }
 
-  h3#titlealign {
+  .alignwithimg {
     margin-top: 0;
+  }
+
+  a#new {
+    padding: 2% 3%;
   }
 
   button {
     padding: 1% 2%;
-    border-radius: 5%;
   }
 }
