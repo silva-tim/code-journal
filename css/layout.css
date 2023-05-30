@@ -23,6 +23,11 @@
   justify-content: flex-end;
 }
 
+.justifycenter {
+  display: flex;
+  justify-content: center;
+}
+
 button {
   padding: 2% 4%;
   border-radius: 10%;
