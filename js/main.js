@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   const $row = document.createElement('div');
-  $row.setAttribute('class', 'row');
+  $row.classList.add('row');
   $li.append($row);
 
   const $columnHalf = document.createElement('div');
@@ -66,14 +67,40 @@ function renderEntry(entry) {
   $columnHalf2.setAttribute('class', 'column-half');
   $row.append($columnHalf2);
 
+  const $row2 = document.createElement('div');
+  $row2.classList.add('row');
+  $columnHalf2.append($row2);
+
+  const $columnAlwaysHalf = document.createElement('div');
+  $columnAlwaysHalf.classList.add('column-alwayshalf');
+  $row2.append($columnAlwaysHalf);
+
   const $h2 = document.createElement('h2');
   $h2.classList.add('prozo', 'alignwithimg');
   $h2.textContent = entry.title;
+  $columnAlwaysHalf.append($h2);
+
+  const $columnAlwaysHalf2 = document.createElement('div');
+  $columnAlwaysHalf2.classList.add('column-alwayshalf', 'justifyright');
+  $row2.append($columnAlwaysHalf2);
+
+  const $pencilIcon = document.createElement('i');
+  $pencilIcon.classList.add('fa', 'fa-pencil', 'alignwithimg');
+  $pencilIcon.setAttribute('aria-hidden', 'true');
+  $columnAlwaysHalf2.append($pencilIcon);
+
+  const $row3 = document.createElement('div');
+  $row3.classList.add('row');
+  $columnHalf2.append($row3);
+
+  const $columnFull = document.createElement('div');
+  $columnFull.classList.add('column-full');
+  $row3.append($columnFull);
 
   const $p = document.createElement('p');
   $p.classList.add('opensans');
   $p.textContent = entry.notes;
-  $columnHalf2.append($h2, $p);
+  $columnFull.append($p);
   return $li;
 }
 
