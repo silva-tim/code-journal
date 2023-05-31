@@ -11,6 +11,7 @@ const $aNew = document.querySelector('a#new');
 const $noEntries = document.querySelector('#noentries');
 const $h1 = document.querySelector('h1');
 
+// Re-renders previous entries if there are any and switches to view user left page on.
 document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.append(renderEntry(data.entries[i]));
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   viewSwap(data.view);
 });
 
+// Function for creating DOM tree and rendering entries based on form inputs.
 function renderEntry(entry) {
   const $li = document.createElement('li');
   $li.setAttribute('data-entry-id', entry.entryId);
@@ -80,10 +82,12 @@ function renderEntry(entry) {
   return $li;
 }
 
+// Sets photo to the link inputed into $photoLink.
 $photoLink.addEventListener('input', function (event) {
   $photo.setAttribute('src', event.target.value);
 });
 
+// Submit button that handles two situations, first if it is a new entry it will create the object, render and add it to the entries page and add the new object to the data.entries array. If it is an edited entry it will keep the entryId consistent and render/replace the original entry in both the entries page and the data.entries array. Finally it checks if $noEntries is on and turns it off and resets the form/picture and switches to entries view.
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -117,10 +121,12 @@ $form.addEventListener('submit', function (event) {
   viewSwap('entries');
 });
 
+// Function to toggle $noEntries.
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
 }
 
+// Function to swap views.
 function viewSwap(view) {
   if (view === 'entries') {
     $viewEntries.classList.remove('hidden');
@@ -133,6 +139,7 @@ function viewSwap(view) {
   data.view = view;
 }
 
+// Events to switch entries on click.
 $aEntries.addEventListener('click', function (event) {
   viewSwap('entries');
 });
@@ -141,6 +148,7 @@ $aNew.addEventListener('click', function (event) {
   viewSwap('entry-form');
 });
 
+// Event to setup form for the editing ability. Inputs all values of data.editing and switches view to entry-form.
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName !== 'I') {
     return;
