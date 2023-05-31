@@ -192,5 +192,8 @@ $modal.addEventListener('click', function (event) {
   if (event.target.getAttribute('id') === 'cancel') {
     $modal.classList.add('hidden');
     $background.classList.add('hidden');
+  } else if (event.target.getAttribute('id') === 'confirm') {
+    data.entries.splice(data.entries.indexOf(data.editing), 1);
+
   }
 });
