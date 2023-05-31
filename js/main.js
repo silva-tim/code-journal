@@ -163,7 +163,6 @@ $ul.addEventListener('click', function (event) {
   if (event.target.tagName !== 'I') {
     return;
   }
-  viewSwap('entry-form');
   for (let i = 0; i < data.entries.length; i++) {
     if (data.entries[i].entryId === Number(event.target.closest('li').getAttribute('data-entry-id'))) {
       data.editing = data.entries[i];
@@ -175,4 +174,5 @@ $ul.addEventListener('click', function (event) {
       $h1.textContent = 'Edit Entry';
     }
   }
+  viewSwap('entry-form');
 });
