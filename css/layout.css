@@ -48,6 +48,10 @@ button {
   margin-bottom: 3%;
 }
 
+i {
+  margin-top: 19.92px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -61,6 +65,10 @@ button {
 
   .column-half {
     width: 50%;
+  }
+
+  h2.alignwithimg {
+    margin-bottom: 0;
   }
 
   .alignwithimg {
