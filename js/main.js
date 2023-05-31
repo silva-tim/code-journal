@@ -141,6 +141,11 @@ function viewSwap(view) {
 
 // Events to switch entries on click.
 $aEntries.addEventListener('click', function (event) {
+  if (data.editing !== null) {
+    $form.reset();
+    $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $h1.textContent = 'New Entry';
+  }
   viewSwap('entries');
 });
 
