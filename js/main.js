@@ -196,5 +196,8 @@ $modal.addEventListener('click', function (event) {
     data.entries.splice(data.entries.indexOf(data.editing), 1);
     const $currentLI = document.querySelector("[data-entry-id='" + data.editing.entryId + "']");
     $currentLI.remove();
+    if (data.entries.length < 1) {
+      toggleNoEntries();
+    }
   }
 });
