@@ -87,7 +87,12 @@ $photoLink.addEventListener('input', function (event) {
   $photo.setAttribute('src', event.target.value);
 });
 
-// Submit button that handles two situations, first if it is a new entry it will create the object, render and add it to the entries page and add the new object to the data.entries array. If it is an edited entry it will keep the entryId consistent and render/replace the original entry in both the entries page and the data.entries array. Finally it checks if $noEntries is on and turns it off and resets the form/picture and switches to entries view.
+/* Submit button that handles two situations, first if it is a new entry it will
+ create the object, render and add it to the entries page and add the new object
+ to the data.entries array. If it is an edited entry it will keep the entryId
+ consistent and render/replace the original entry in both the entries page and
+ the data.entries array. Finally it checks if $noEntries is on and turns it off
+ and resets the form/picture and switches to entries view. */
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -169,7 +174,5 @@ $ul.addEventListener('click', function (event) {
       $photo.setAttribute('src', data.editing.photo);
       $h1.textContent = 'Edit Entry';
     }
-
   }
-
 });
