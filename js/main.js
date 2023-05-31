@@ -187,3 +187,10 @@ $delete.addEventListener('click', function (event) {
   $modal.classList.remove('hidden');
   $background.classList.remove('hidden');
 });
+
+$modal.addEventListener('click', function (event) {
+  if (event.target.getAttribute('id') === 'cancel') {
+    $modal.classList.add('hidden');
+    $background.classList.add('hidden');
+  }
+});
