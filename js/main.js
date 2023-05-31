@@ -116,9 +116,6 @@ $form.addEventListener('submit', function (event) {
 
     const $originalLI = document.querySelector("[data-entry-id='" + submission.entryId + "']");
     $originalLI.replaceWith(renderEntry(submission));
-    $h1.textContent = 'New Entry';
-    data.editing = null;
-    $delete.classList.add('hidden');
   }
 
   if ($noEntries.getAttribute('class') !== 'row hidden') {
@@ -149,10 +146,7 @@ function viewSwap(view) {
 
 // Events to switch entries on click.
 $aEntries.addEventListener('click', function (event) {
-  if (data.editing !== null) {
-    resetForm();
-    $delete.classList.add('hidden');
-  }
+  resetForm();
   viewSwap('entries');
 });
 
@@ -193,10 +187,8 @@ $modal.addEventListener('click', function (event) {
     const $currentLI = document.querySelector("[data-entry-id='" + data.editing.entryId + "']");
     $currentLI.remove();
 
-    data.editing = null;
     resetForm();
     hideModal();
-    $delete.classList.add('hidden');
 
     if (data.entries.length < 1) {
       toggleNoEntries();
@@ -209,6 +201,8 @@ function resetForm() {
   $form.reset();
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $h1.textContent = 'New Entry';
+  data.editing = null;
+  $delete.classList.add('hidden');
 }
 
 function hideModal() {
