@@ -11,6 +11,8 @@ const $aNew = document.querySelector('a#new');
 const $noEntries = document.querySelector('#noentries');
 const $h1 = document.querySelector('h1');
 const $delete = document.querySelector('button#delete');
+const $background = document.querySelector('div.background');
+const $modal = document.querySelector('div#modal');
 
 // Re-renders previous entries if there are any and switches to view user left page on.
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -179,4 +181,9 @@ $ul.addEventListener('click', function (event) {
     }
   }
   viewSwap('entry-form');
+});
+
+$delete.addEventListener('click', function (event) {
+  $modal.classList.remove('hidden');
+  $background.classList.remove('hidden');
 });
