@@ -10,6 +10,7 @@ const $aEntries = document.querySelector('a#entries');
 const $aNew = document.querySelector('a#new');
 const $noEntries = document.querySelector('#noentries');
 const $h1 = document.querySelector('h1');
+const $delete = document.querySelector('button#delete');
 
 // Re-renders previous entries if there are any and switches to view user left page on.
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -115,6 +116,7 @@ $form.addEventListener('submit', function (event) {
     $originalLI.replaceWith(renderEntry(submission));
     $h1.textContent = 'New Entry';
     data.editing = null;
+    $delete.classList.add('hidden');
   }
 
   if ($noEntries.getAttribute('class') !== 'row hidden') {
@@ -150,6 +152,7 @@ $aEntries.addEventListener('click', function (event) {
     $form.reset();
     $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
     $h1.textContent = 'New Entry';
+    $delete.classList.add('hidden');
   }
   viewSwap('entries');
 });
@@ -172,6 +175,7 @@ $ul.addEventListener('click', function (event) {
       $form.elements.notes.value = data.editing.notes;
       $photo.setAttribute('src', data.editing.photo);
       $h1.textContent = 'Edit Entry';
+      $delete.classList.remove('hidden');
     }
   }
   viewSwap('entry-form');

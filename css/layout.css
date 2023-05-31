@@ -42,10 +42,14 @@ a#new {
   border-radius: 10%;
 }
 
-button {
+button#submit {
   padding: 2% 4%;
   border-radius: 10%;
   margin-bottom: 3%;
+}
+
+button#delete {
+  padding: 2% 0;
 }
 
 i {

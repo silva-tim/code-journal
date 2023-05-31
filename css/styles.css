@@ -26,7 +26,7 @@ img {
 }
 
 a#new,
-button {
+button#submit {
   background-color: #552b81;
   color: white;
 }
@@ -66,4 +66,10 @@ i {
 i:hover,
 a:hover {
   cursor: pointer;
+}
+
+button#delete {
+  color: red;
+  text-decoration: underline;
+  border-style: none;
 }
