@@ -194,6 +194,7 @@ $modal.addEventListener('click', function (event) {
     $background.classList.add('hidden');
   } else if (event.target.getAttribute('id') === 'confirm') {
     data.entries.splice(data.entries.indexOf(data.editing), 1);
-
+    const $currentLI = document.querySelector("[data-entry-id='" + data.editing.entryId + "']");
+    $currentLI.remove();
   }
 });
