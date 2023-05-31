@@ -125,8 +125,7 @@ $form.addEventListener('submit', function (event) {
     toggleNoEntries();
   }
 
-  $form.reset();
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  resetForm();
   viewSwap('entries');
 });
 
@@ -151,9 +150,7 @@ function viewSwap(view) {
 // Events to switch entries on click.
 $aEntries.addEventListener('click', function (event) {
   if (data.editing !== null) {
-    $form.reset();
-    $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-    $h1.textContent = 'New Entry';
+    resetForm();
     $delete.classList.add('hidden');
   }
   viewSwap('entries');
@@ -190,18 +187,31 @@ $delete.addEventListener('click', function (event) {
 
 $modal.addEventListener('click', function (event) {
   if (event.target.getAttribute('id') === 'cancel') {
-    $modal.classList.add('hidden');
-    $background.classList.add('hidden');
+    hideModal();
   } else if (event.target.getAttribute('id') === 'confirm') {
     data.entries.splice(data.entries.indexOf(data.editing), 1);
     const $currentLI = document.querySelector("[data-entry-id='" + data.editing.entryId + "']");
     $currentLI.remove();
+
     data.editing = null;
+    resetForm();
+    hideModal();
+    $delete.classList.add('hidden');
+
     if (data.entries.length < 1) {
       toggleNoEntries();
     }
-    $modal.classList.add('hidden');
-    $background.classList.add('hidden');
     viewSwap('entries');
   }
 });
+
+function resetForm() {
+  $form.reset();
+  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $h1.textContent = 'New Entry';
+}
+
+function hideModal() {
+  $modal.classList.add('hidden');
+  $background.classList.add('hidden');
+}

@@ -64,7 +64,7 @@ i {
 }
 
 button#delete {
-  color: red;
+  color: #dc2625;
   text-decoration: underline;
   border-style: none;
 }
@@ -100,4 +100,9 @@ button:hover,
 i:hover,
 a:hover {
   cursor: pointer;
+  text-decoration: underline;
+}
+
+button#delete:hover {
+  text-decoration: underline black;
 }
