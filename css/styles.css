@@ -53,6 +53,10 @@ li {
   margin-bottom: 5%;
 }
 
+p {
+  word-wrap: break-word;
+}
+
 a#entries {
   font-size: smaller;
   padding: 0 2%;
@@ -105,4 +109,14 @@ a:hover {
 
 button#delete:hover {
   text-decoration: underline black;
+}
+
+#search {
+  width: 100%;
+  padding: 2%;
+}
+
+#magnify {
+  margin-right: 20px;
+  margin-top: 0;
 }

@@ -65,7 +65,7 @@
           </div>
           <div class="column-half">
             <h3 class="prozo alignwithimg"><label for="title">Title</label></h3>
-            <input type="text" id="title" class="opensans" required>
+            <input type="text" id="title" class="opensans" maxlength="15" required>
             <h3 class="prozo"><label for="photolink"></label>Photo URL</label></h3>
             <input type="text" id="photolink" class="opensans" required>
           </div>
@@ -92,7 +92,13 @@
           <h1 class="prozo">Entries</h1>
         </div>
         <div class="column-alwayshalf justifyright aligncenter">
+          <i class="fa-solid fa-magnifying-glass" id="magnify"></i>
           <a id="new" class="prozo">NEW</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column-full">
+          <input type="text" id="search" placeholder="SEARCH" class="hidden">
         </div>
       </div>
       <div id="noentries" class="row hidden">
