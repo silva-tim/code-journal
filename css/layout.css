@@ -17,7 +17,8 @@
 }
 
 #popup {
-  padding: 5% 3%;
+  padding: 5% 4%;
+  font-size: 14px;
 }
 
 .row {
@@ -106,6 +107,6 @@ i {
   }
 
   #popup {
-    padding: 2% 1%;
+    padding: 1.5% 0.5%;
   }
 }
