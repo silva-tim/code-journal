@@ -13,6 +13,8 @@ const $h1 = document.querySelector('h1');
 const $delete = document.querySelector('button#delete');
 const $background = document.querySelector('div.background');
 const $modal = document.querySelector('div#modal');
+const $search = document.querySelector('#search');
+const $magnify = document.querySelector('#magnify');
 
 // Re-renders previous entries if there are any and switches to view user left page on.
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -129,6 +131,8 @@ $form.addEventListener('submit', function (event) {
 // Function to toggle $noEntries.
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
+  $magnify.classList.toggle('hidden');
+  $search.classList.add('hidden');
 }
 
 // Function to swap views.
@@ -208,4 +212,34 @@ function resetForm() {
 function hideModal() {
   $modal.classList.add('hidden');
   $background.classList.add('hidden');
+}
+
+$magnify.addEventListener('click', function (event) {
+  if (!$search.classList.contains('hidden')) {
+    unrenderAll();
+    for (let i = 0; i < data.entries.length; i++) {
+      $ul.append(renderEntry(data.entries[i]));
+    }
+  }
+  $search.classList.toggle('hidden');
+  $search.focus();
+  $search.value = '';
+});
+
+$search.addEventListener('input', function (event) {
+  unrenderAll();
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].title.toLowerCase().includes(event.target.value.toLowerCase())) {
+      $ul.append(renderEntry(data.entries[i]));
+    } else if (data.entries[i].notes.toLowerCase().includes(event.target.value.toLowerCase())) {
+      $ul.append(renderEntry(data.entries[i]));
+    }
+  }
+});
+
+function unrenderAll() {
+  const $lis = document.querySelectorAll('li');
+  $lis.forEach(function (element) {
+    element.remove();
+  });
 }
