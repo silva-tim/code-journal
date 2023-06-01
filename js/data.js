@@ -8,6 +8,7 @@ var data = {
 };
 
 window.addEventListener('beforeunload', function (event) {
+  data.editing = null;
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('data', dataJSON);
 });

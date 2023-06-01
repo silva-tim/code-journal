@@ -10,6 +10,9 @@ const $aEntries = document.querySelector('a#entries');
 const $aNew = document.querySelector('a#new');
 const $noEntries = document.querySelector('#noentries');
 const $h1 = document.querySelector('h1');
+const $delete = document.querySelector('button#delete');
+const $background = document.querySelector('div.background');
+const $modal = document.querySelector('div#modal');
 
 // Re-renders previous entries if there are any and switches to view user left page on.
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -113,16 +116,13 @@ $form.addEventListener('submit', function (event) {
 
     const $originalLI = document.querySelector("[data-entry-id='" + submission.entryId + "']");
     $originalLI.replaceWith(renderEntry(submission));
-    $h1.textContent = 'New Entry';
-    data.editing = null;
   }
 
   if ($noEntries.getAttribute('class') !== 'row hidden') {
     toggleNoEntries();
   }
 
-  $form.reset();
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  resetForm();
   viewSwap('entries');
 });
 
@@ -146,11 +146,7 @@ function viewSwap(view) {
 
 // Events to switch entries on click.
 $aEntries.addEventListener('click', function (event) {
-  if (data.editing !== null) {
-    $form.reset();
-    $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-    $h1.textContent = 'New Entry';
-  }
+  resetForm();
   viewSwap('entries');
 });
 
@@ -172,7 +168,44 @@ $ul.addEventListener('click', function (event) {
       $form.elements.notes.value = data.editing.notes;
       $photo.setAttribute('src', data.editing.photo);
       $h1.textContent = 'Edit Entry';
+      $delete.classList.remove('hidden');
     }
   }
   viewSwap('entry-form');
 });
+
+$delete.addEventListener('click', function (event) {
+  $modal.classList.remove('hidden');
+  $background.classList.remove('hidden');
+});
+
+$modal.addEventListener('click', function (event) {
+  if (event.target.getAttribute('id') === 'cancel') {
+    hideModal();
+  } else if (event.target.getAttribute('id') === 'confirm') {
+    data.entries.splice(data.entries.indexOf(data.editing), 1);
+    const $currentLI = document.querySelector("[data-entry-id='" + data.editing.entryId + "']");
+    $currentLI.remove();
+
+    resetForm();
+    hideModal();
+
+    if (data.entries.length < 1) {
+      toggleNoEntries();
+    }
+    viewSwap('entries');
+  }
+});
+
+function resetForm() {
+  $form.reset();
+  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $h1.textContent = 'New Entry';
+  data.editing = null;
+  $delete.classList.add('hidden');
+}
+
+function hideModal() {
+  $modal.classList.add('hidden');
+  $background.classList.add('hidden');
+}

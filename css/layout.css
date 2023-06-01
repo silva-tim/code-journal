@@ -8,6 +8,19 @@
   padding: 0 1.5rem;
 }
 
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#popup {
+  padding: 5% 4%;
+  font-size: 14px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -37,15 +50,29 @@
   align-items: center;
 }
 
+p.space {
+  padding-bottom: 5%;
+}
+
 a#new {
   padding: 3% 5%;
   border-radius: 10%;
 }
 
-button {
+button#confirm,
+button#cancel {
+  padding: 4% 6%;
+  border-radius: 8%;
+}
+
+button#submit {
   padding: 2% 4%;
   border-radius: 10%;
   margin-bottom: 3%;
+}
+
+button#delete {
+  padding: 2% 0;
 }
 
 i {
@@ -79,7 +106,7 @@ i {
     padding: 2% 3%;
   }
 
-  button {
-    padding: 1% 2%;
+  #popup {
+    padding: 1.5% 0.5%;
   }
 }

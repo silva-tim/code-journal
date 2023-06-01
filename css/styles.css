@@ -26,7 +26,7 @@ img {
 }
 
 a#new,
-button {
+button#submit {
   background-color: #552b81;
   color: white;
 }
@@ -63,7 +63,46 @@ i {
   font-size: 30px;
 }
 
+button#delete {
+  color: #dc2625;
+  text-decoration: underline;
+  border-style: none;
+}
+
+button#confirm {
+  background-color: #dc2625;
+  color: white;
+  border-style: none;
+  font-size: 15px;
+}
+
+button#cancel {
+  background-color: #b6b6b6;
+  border-style: none;
+  font-size: 15px;
+}
+
+#popup {
+  background-color: white;
+  border-radius: 3%;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.451);
+}
+
+button:hover,
 i:hover,
 a:hover {
   cursor: pointer;
+  text-decoration: underline;
+}
+
+button#delete:hover {
+  text-decoration: underline black;
 }
