@@ -131,6 +131,7 @@ $form.addEventListener('submit', function (event) {
 // Function to toggle $noEntries.
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
+  $magnify.classList.toggle('hidden');
 }
 
 // Function to swap views.
