@@ -128,7 +128,7 @@ $form.addEventListener('submit', function (event) {
   viewSwap('entries');
 });
 
-// Function to toggle $noEntries.
+// Function to toggle $noEntries and search feature.
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
   $magnify.classList.toggle('hidden');
@@ -178,11 +178,13 @@ $ul.addEventListener('click', function (event) {
   viewSwap('entry-form');
 });
 
+// Event to open the delete modal.
 $delete.addEventListener('click', function (event) {
   $modal.classList.remove('hidden');
   $background.classList.remove('hidden');
 });
 
+// Event to see what should happen based on user input from modal. If confirm it will remove current entry from view and data.entries array;
 $modal.addEventListener('click', function (event) {
   if (event.target.getAttribute('id') === 'cancel') {
     hideModal();
@@ -201,6 +203,7 @@ $modal.addEventListener('click', function (event) {
   }
 });
 
+// Function to reset form.
 function resetForm() {
   $form.reset();
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -209,11 +212,13 @@ function resetForm() {
   $delete.classList.add('hidden');
 }
 
+// Function to hide modal.
 function hideModal() {
   $modal.classList.add('hidden');
   $background.classList.add('hidden');
 }
 
+// Event for magnify glass to open search bar.
 $magnify.addEventListener('click', function (event) {
   if (!$search.classList.contains('hidden')) {
     unrenderAll();
@@ -226,6 +231,7 @@ $magnify.addEventListener('click', function (event) {
   $search.value = '';
 });
 
+// Event to search for input in search bar.
 $search.addEventListener('input', function (event) {
   unrenderAll();
   for (let i = 0; i < data.entries.length; i++) {
@@ -237,6 +243,7 @@ $search.addEventListener('input', function (event) {
   }
 });
 
+// Function to unrender all entries.
 function unrenderAll() {
   const $lis = document.querySelectorAll('li');
   $lis.forEach(function (element) {
