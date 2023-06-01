@@ -132,6 +132,7 @@ $form.addEventListener('submit', function (event) {
 function toggleNoEntries() {
   $noEntries.classList.toggle('hidden');
   $magnify.classList.toggle('hidden');
+  $search.classList.add('hidden');
 }
 
 // Function to swap views.
@@ -229,6 +230,8 @@ $search.addEventListener('input', function (event) {
   unrenderAll();
   for (let i = 0; i < data.entries.length; i++) {
     if (data.entries[i].title.toLowerCase().includes(event.target.value.toLowerCase())) {
+      $ul.append(renderEntry(data.entries[i]));
+    } else if (data.entries[i].notes.toLowerCase().includes(event.target.value.toLowerCase())) {
       $ul.append(renderEntry(data.entries[i]));
     }
   }
