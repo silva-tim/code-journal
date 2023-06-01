@@ -213,7 +213,14 @@ function hideModal() {
 }
 
 $magnify.addEventListener('click', function (event) {
+  if (!$search.classList.contains('hidden')) {
+    unrenderAll();
+    for (let i = 0; i < data.entries.length; i++) {
+      $ul.append(renderEntry(data.entries[i]));
+    }
+  }
   $search.classList.toggle('hidden');
+  $search.value = '';
 });
 
 $search.addEventListener('input', function (event) {
