@@ -220,6 +220,7 @@ $magnify.addEventListener('click', function (event) {
     }
   }
   $search.classList.toggle('hidden');
+  $search.focus();
   $search.value = '';
 });
 
